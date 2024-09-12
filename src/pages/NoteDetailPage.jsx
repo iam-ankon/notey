@@ -60,7 +60,7 @@ const NoteDetailPage = ({ deleteNote }) => {
       {isOpen && (
         <Modal
           handleIsOpen={handleIsOpen}
-          deleteNote={() => deleteNote(slug)}
+          deleteNote={() => deleteNote(slug)} // Ensure slug is passed here
         />
       )}
     </>

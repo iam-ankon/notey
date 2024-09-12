@@ -89,9 +89,14 @@ const App = () => {
 
   const deleteNote = (slug) => {
     axios
-      .delete(`http://127.0.0.1:8000/notes/${slug}`)
+      .delete(`http://127.0.0.1:8000/notes/${slug}/`)
+      .then(() => {
+        setNotes(notes.filter(note => note.slug !== slug)); // Update state
+        toast.success("Note deleted successfully!");
+      })
       .catch((err) => console.log(err.message));
   };
+  
 
   const router = createBrowserRouter(
     createRoutesFromElements(
